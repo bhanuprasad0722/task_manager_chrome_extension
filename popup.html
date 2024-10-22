@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TaskPop - Your Task Manager</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="icon.jpeg" alt="TaskPop Icon" class="icon">
+            <h1>TaskPop - Your Task Manager</h1>
+            <p id="welcomeMessage"></p>
+        </header>
+        <div class="task-input">
+            <input type="text" id="taskInput" placeholder="Enter your task..." required>
+            <input type="datetime-local" id="taskDeadline" required>
+            <input type="text" id="taskURL" placeholder="Optional URL">
+            <button id="addTaskButton">Add Task</button>
+        </div>
+        <div class="task-categories">
+            <h2>To Do</h2>
+            <ul id="todoList"></ul>
+            <h2>Pending</h2>
+            <ul id="pendingList"></ul>
+            <h2>Done</h2>
+            <ul id="doneList"></ul>
+            
+        </div>
+        <footer>
+            <!--<button id="syncCalendar">Sync with Google Calendar</button>
+            <button id="settingsButton">Settings</button>-->
+            <p>Version 1.0 - Your personal task manager</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

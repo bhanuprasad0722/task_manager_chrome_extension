@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "TaskPop",
+    "description": "A simple task management tool with reminders.",
+    "version": "1.0",
+    "permissions": ["notifications", "storage","alarms"],
+    "action": {
+        "default_title": "Open TaskPop",
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        }
+    },
+    "icons": {
+    "128": "icon128.png"
+  },
+    "background": {
+        "service_worker": "background.js"
+    }
+}
