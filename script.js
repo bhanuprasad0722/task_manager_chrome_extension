@@ -207,13 +207,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Clear All Completed Tasks
+    /*// Clear All Completed Tasks
     clearAllButton.addEventListener('click', function () {
         chrome.storage.local.set({ completedTasks: [] }, function () {
             doneList.innerHTML = ''; // Clear the UI list
             chrome.runtime.sendMessage({ type: 'showNotification', title: 'Completed Tasks Cleared', message: 'All completed tasks have been removed.' });
         });
-    });
+    });*/
 
     // Update the list of recent 5 completed tasks
     function updateRecentTasks(completedTasks) {
