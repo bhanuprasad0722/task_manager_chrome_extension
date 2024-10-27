@@ -147,10 +147,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             updateRecentTasks(completedTasks.slice(0, 5));
 
-            // Remove task from To-Do List, if it exists
-            if (todoItem && todoList.contains(todoItem)) {
-                todoList.removeChild(todoItem);
-            }
+            // Remove task from To-Do List
+            todoList.removeChild(todoItem);
 
             // Remove the alarm associated with this task
             chrome.runtime.sendMessage({ type: 'removeAlarm', taskId: task.id });
@@ -184,10 +182,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const pendingTasks = data.pendingTasks.filter((t) => t.id !== taskId);
             chrome.storage.local.set({ pendingTasks: pendingTasks });
 
-            // Remove task from UI if it exists
-            if (pendingItem && pendingList.contains(pendingItem)) {
-                pendingList.removeChild(pendingItem);
-            }
+            // Remove task from UI
+            pendingList.removeChild(pendingItem);
 
             // Show notification
             chrome.runtime.sendMessage({ type: 'showNotification', title: 'Task Deleted', message: 'Pending Task has been removed.' });
@@ -200,10 +196,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const tasks = data.tasks.filter((t) => t.id !== taskId);
             chrome.storage.local.set({ tasks: tasks });
 
-            // Remove task from UI if it exists
-            if (todoItem && todoList.contains(todoItem)) {
-                todoList.removeChild(todoItem);
-            }
+            // Remove task from UI
+            todoList.removeChild(todoItem);
 
             // Remove the alarm associated with this task
             chrome.runtime.sendMessage({ type: 'removeAlarm', taskId: taskId });
@@ -212,6 +206,14 @@ document.addEventListener('DOMContentLoaded', function () {
             chrome.runtime.sendMessage({ type: 'showNotification', title: 'Task Deleted', message: 'Task has been removed.' });
         });
     }
+
+    /*// Clear All Completed Tasks
+    clearAllButton.addEventListener('click', function () {
+        chrome.storage.local.set({ completedTasks: [] }, function () {
+            doneList.innerHTML = ''; // Clear the UI list
+            chrome.runtime.sendMessage({ type: 'showNotification', title: 'Completed Tasks Cleared', message: 'All completed tasks have been removed.' });
+        });
+    });*/
 
     // Update the list of recent 5 completed tasks
     function updateRecentTasks(completedTasks) {
