@@ -1,4 +1,3 @@
-// Create Alarm and Handle Reminders
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     if (message.type === 'createAlarm') {
         const task = message.task;
