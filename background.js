@@ -18,7 +18,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     if (message.type === 'showNotification') {
         chrome.notifications.create({
             type: 'basic',
-            iconUrl: 'icon.jpeg',
+            iconUrl: 'icon128.png',
             title: message.title,
             message: message.message,
             priority: 2
@@ -45,7 +45,7 @@ chrome.alarms.onAlarm.addListener(function (alarm) {
             if (task) {
                 chrome.notifications.create({
                     type: 'basic',
-                    iconUrl: 'icon.jpeg',
+                    iconUrl: 'icon128.png',
                     title: 'Task Reminder',
                     message: `Reminder: ${task.description} is due soon! Click to view.`,
                     priority: 2
